@@ -7,6 +7,12 @@ class Diamond {
   }
 
   display() {
+     // Calculate angle between mouse position and diamond center
+     let dx = mouseX - this.x; // Calculate the horizontal distance between the mouse and the center of the diamond
+     let dy = mouseY - this.y; // Calculate the vertical distance between the mouse and the center of the diamond
+     let angle = atan2(dy, dx); // Calculate the direction angle from the center of the diamond to the mouse position
+
+
     fill(this.colour); // Fill to match the background
     //stroke(0); // Stroke for the square
     rectMode(CENTER);
@@ -18,7 +24,9 @@ class Diamond {
     fill(27, 27, 37); // Fill color for the circles
     for (let dx of offsets) {
       for (let dy of offsets) {
-        ellipse(this.x + dx * this.size, this.y + dy * this.size, this.size, this.size);
+        let rotatedX = this.x + dx * this.size * cos(angle) - dy * this.size * sin(angle);
+        let rotatedY = this.y + dx * this.size * sin(angle) + dy * this.size * cos(angle);
+        ellipse(rotatedX, rotatedY, this.size, this.size); // Use rotated positions
       }
     }
   }

@@ -8,14 +8,15 @@ class RadiatingLines {
         this.strokeWeight = strokeWeight;
     }
 
-  // Method to change glow color on mouse click
-  changeGlowColor() {
-    this.glowColor = [random(255), random(255), random(255), 150];
-  }
-
     display() {
         push();
         translate(this.x, this.y);
+
+        // Calculate angle based on mouse position
+        let angle = atan2(mouseY - this.y, mouseX - this.x);
+
+         // Apply rotation based on mouse position
+         rotate(angle);
 
         // Apply shadow for glow effect
         drawingContext.shadowBlur = 30;

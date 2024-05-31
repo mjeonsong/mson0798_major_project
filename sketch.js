@@ -85,12 +85,26 @@ function setup() {
   
 }
 
+function mousePressed() {
+  let newGlowColor = getRandomColor(); // Change colors of objects to random colors when the mouse is pressed
+  diamondAndCircle.updateGlowColor(newGlowColor);
+  diamondAndCircle1.updateGlowColor(newGlowColor);
+}
+
+function getRandomColor() {
+  return [
+    Math.floor(Math.random() * 256), // R
+    Math.floor(Math.random() * 256), // G
+    Math.floor(Math.random() * 256), // B
+    150 // Alpha (you can change this to any value between 0 and 255)
+  ];
+}
+
 //Drawing the elements on the canvas
 function draw() {
   background(27,27,37);
   concentric.display(); 
   chain.display();
-  flower.update(mouseX, mouseY); // Update flower based on mouse position
   flower.display();
   radiatingLines.display();
   radiatingLines2.display();

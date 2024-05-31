@@ -43,4 +43,9 @@ class DiamondAndCircle {
     let alpha = glowColor[3] / 255 * (100 + 20 * layerIndex);  // Increase alpha with each layer
     return [glowColor[0], glowColor[1], glowColor[2], alpha];
   }
+
+  // Method to update the glow color
+  updateGlowColor(newColor) {
+    this.glowColor = newColor;
+  }
 }

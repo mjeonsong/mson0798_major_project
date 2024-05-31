@@ -5,7 +5,7 @@ class DiamondFormation{
         this.outerRadius = outerRadius;
         this.diamondSize = diamondSize;
         this.count = count;
-       // this.glowColors = glowColors;
+        // this.glowColors = glowColors;
         this.diamonds = [];
         this.createDiamonds();
     }

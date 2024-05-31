@@ -11,33 +11,18 @@ class Flower {
     this.circleColor = circleColor; // Color for concentric circles (default white)
     this.numCircles = numCircles; // Number of concentric circles
     this.glowColour = glowColour;
-
-        // Add properties for animation
-        this.growthFactor = 2; // Scale factor for animation
-        this.angleOffset = 0; // Rotation offset for petals
-      }
-    
-      // Method to update animation state based on mouse position
-      update(mouseX, mouseY) {
-        // Update growth factor based on mouse X position
-        this.growthFactor = map(mouseX, 0, windowWidth, 0.5, 1.5);
-        
-        // Update angle offset based on mouse Y position
-        this.angleOffset = map(mouseY, 0, windowHeight, -PI / 4, PI / 4);
-      }
-    
+  }
 
   display() {
     push();
     translate(this.x, this.y);
-    scale(this.growthFactor); // Apply scale for growth animation
 
     // Draw flower petals with outer glow
     fill(this.petalColor);
     noStroke();
     let angleStep = TWO_PI / this.petalCount;
     for (let i = 0; i < this.petalCount; i++) {
-      let angle = i * angleStep + this.angleOffset; // Apply rotation offset
+      let angle = i * angleStep;
       push();
       rotate(angle);
 
