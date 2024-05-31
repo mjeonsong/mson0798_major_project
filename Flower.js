@@ -42,4 +42,8 @@ class Flower {
         circle.display();
     pop();
   }
-}
+
+    updatePetalColor(newColor) {
+      this.petalColor = newColor;
+    }
+  }
